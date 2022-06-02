@@ -1,0 +1,10 @@
+C:\Users\ANGS5\source\repos\Food-API\Domain\bin\Debug\netcoreapp3.1\Domain.deps.json
+C:\Users\ANGS5\source\repos\Food-API\Domain\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\ANGS5\source\repos\Food-API\Domain\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\ANGS5\source\repos\Food-API\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.AssemblyReference.cache
+C:\Users\ANGS5\source\repos\Food-API\Domain\obj\Debug\netcoreapp3.1\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ANGS5\source\repos\Food-API\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfoInputs.cache
+C:\Users\ANGS5\source\repos\Food-API\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfo.cs
+C:\Users\ANGS5\source\repos\Food-API\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
+C:\Users\ANGS5\source\repos\Food-API\Domain\obj\Debug\netcoreapp3.1\Domain.dll
+C:\Users\ANGS5\source\repos\Food-API\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
