@@ -148,3 +148,4 @@ C:\Users\ANGS5\source\repos\Food-API\WebAPI\obj\Debug\netcoreapp3.1\staticwebass
 C:\Users\ANGS5\source\repos\Food-API\WebAPI\obj\Debug\netcoreapp3.1\staticwebassets\WebAPI.StaticWebAssets.xml
 C:\Users\ANGS5\source\repos\Food-API\WebAPI\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebAPI.styles.css
 C:\Users\ANGS5\source\repos\Food-API\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\ANGS5\source\repos\Food-API\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

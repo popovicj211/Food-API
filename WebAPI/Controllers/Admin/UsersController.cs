@@ -30,14 +30,13 @@ namespace WebAPI.Controllers.Admin
 
 
 
-        public UsersController(IAddUserCommand addUserCommand, IDeleteUserCommand deleteUserCommand, IGetUserCommand getUserCommand, IEditUserCommand editUserCommand, IGetUsersCommand getUsersCommand /*, IEmailSender sender*/)
+        public UsersController(IAddUserCommand addUserCommand, IDeleteUserCommand deleteUserCommand, IGetUserCommand getUserCommand, IEditUserCommand editUserCommand, IGetUsersCommand getUsersCommand)
         {
             _addUserCommand = addUserCommand;
             _deleteUserCommand = deleteUserCommand;
             _getUserCommand = getUserCommand;
             _editUserCommand = editUserCommand;
             _getUsersCommand = getUsersCommand;
-  
         }
 
 
@@ -64,27 +63,100 @@ namespace WebAPI.Controllers.Admin
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<IEnumerable<UserDTO>> Get(int id)
         {
-            return "value";
+
+            try
+            {
+                var user = _getUserCommand.Execute(id);
+
+                return Ok(user);
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Server error, try later");
+            }
         }
 
         // POST api/<UsersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult Post([FromBody] UserAddDTO request)
         {
+     
+
+            try
+            {
+                _addUserCommand.Execute(request);
+
+                return StatusCode(201, "User is succesfully created.");
+            }
+            catch (NotFoundException)
+            {
+                return StatusCode(404, "RoleId is not found");
+            }
+            catch (AlreadyExistException)
+            {
+                return StatusCode(422, "Email already exist");
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Server error, try later");
+            }
+
+
+
         }
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put(int id, [FromBody] UserEditDTO request)
         {
+            try
+            {
+                _editUserCommand.Execute(request);
+                return NoContent();
+            }
+            catch (AlreadyExistException)
+            {
+                return StatusCode(422, "Email or Role or Password already exist");
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Server error, try later");
+            }
+
         }
 
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
+            try
+            {
+                _deleteUserCommand.Execute(id);
+                return StatusCode(204, "User is deleted");
+            }
+            catch (AlreadyExistException)
+            {
+                return Conflict("User is alredy deleted");
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Server error, try later");
+            }
+
         }
     }
 }

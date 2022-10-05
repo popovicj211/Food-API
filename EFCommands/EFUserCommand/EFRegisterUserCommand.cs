@@ -1,37 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
-using Application.DTO;
-using Application.Interfaces;
+using Application.Commands.UserCommand;
 using Application.Exceptions;
 using DataAccess;
 using Domain;
-using Application.Commands.UserCommand;
+using System.Linq;
+using Application.DTO;
 
 namespace EFCommands.EFUserCommand
 {
-  public class EFAddUserCommand : EFBaseCommand, IAddUserCommand
+   public class EFRegisterUserCommand : EFBaseCommand, IRegisterUserCommand
     {
 
-    
-
-        public EFAddUserCommand(DatabaseContext context): base(context)
+        public EFRegisterUserCommand(DatabaseContext context) : base(context)
         {
 
         }
 
-        public void Execute(UserAddDTO request)
+        public void Execute(UserRegister request)
         {
             if (_context.Users.Any(u => u.Email == request.Email))
             {
                 throw new AlreadyExistException();
             }
 
-            if (_context.Roles.Any(r => r.Id == request.RoleId))
-            {
-
-            }
             else
             {
                 throw new NotFoundException();
@@ -39,21 +32,20 @@ namespace EFCommands.EFUserCommand
 
             var password = BCrypt.Net.BCrypt.HashPassword(request.Password);
 
+            
+
             _context.Users.Add(new User
             {
                 Name = request.Name,
                 Email = request.Email,
-          //      Password = BCrypt.Net.BCrypt.EnhancedHashPassword(request.Password),
-                 Password = request.Password,
-                Active = request.Active,
+               //      Password = BCrypt.Net.BCrypt.EnhancedHashPassword(request.Password),
+                Password = password,
                 Token = BCrypt.Net.BCrypt.EnhancedHashPassword(request.Email + request.Password),
                 Address = request.Address,
                 Tel = request.Tel,
-                RoleId = request.RoleId
             });
 
             _context.SaveChanges();
         }
-
     }
 }

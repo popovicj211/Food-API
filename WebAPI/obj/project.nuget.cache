@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "kTt1SSP67FDUE/ws03COmU4VpXn8ILupf6Vgc8xppr670oDgaExMfQdOlf3SNZwsIh/gF66kIYNgp1MkmWSzBw==",
+  "dgSpecHash": "WIB+O+XXEfP3xVkalaq5misKmpIt9frGX8xxD+PwYsEYn1MHLMbho28caAGGxWMyfYXxdCCLb0waYTrjZed4Ww==",
   "success": true,
   "projectFilePath": "C:\\Users\\ANGS5\\source\\repos\\Food-API\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ANGS5\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\ANGS5\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.25\\microsoft.aspnetcore.authentication.jwtbearer.3.1.25.nupkg.sha512",
     "C:\\Users\\ANGS5\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ANGS5\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.22\\microsoft.aspnetcore.http.features.3.1.22.nupkg.sha512",
     "C:\\Users\\ANGS5\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
